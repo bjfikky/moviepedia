@@ -1,14 +1,20 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, {Component, Fragment} from 'react';
+import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
+
+import Header from './src/components/Header'
 
 
 export default class App extends Component<Props> {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to React Native!</Text>
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
-            </View>
+            <Fragment>
+                <SafeAreaView style={{ flex:0, backgroundColor: '#2980b9'}} />
+                <SafeAreaView style={styles.container}>
+                    <View style={styles.container}>
+                        <Header/>
+                    </View>
+                </SafeAreaView>
+            </Fragment>
         );
     }
 }
@@ -16,18 +22,6 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+        backgroundColor: '#f2f2f2',
+    }
 });
