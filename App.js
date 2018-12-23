@@ -3,6 +3,7 @@ import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
 
 import Header from './src/components/Header'
 import SearchBar from './src/components/SearchBar'
+import MovieCard from './src/components/MovieCard'
 
 
 export default class App extends Component<Props> {
@@ -14,6 +15,15 @@ export default class App extends Component<Props> {
                     <View style={styles.container}>
                         <Header/>
                         <SearchBar/>
+
+                        <View>
+                            <Text>
+                                Trending:
+                            </Text>
+                            <MovieCard/>
+                            <MovieCard/>
+                            <MovieCard/>
+                        </View>
                     </View>
                 </SafeAreaView>
             </Fragment>
