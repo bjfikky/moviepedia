@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "16.6.3",
     "react-native": "0.57.8"
   },
@@ -20,6 +21,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": ["./assets/fonts/Colourbars"]
+    "assets": [
+      "./assets/fonts/Colourbars"
+    ]
   }
 }

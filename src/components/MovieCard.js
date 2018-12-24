@@ -9,8 +9,10 @@ const MovieCard = () => {
                 <Image style={styles.cover} source={{uri: 'https://via.placeholder.com/300'}}/>
             </View>
 
-            <View>
-                <Text>Movie Title</Text>
+            <View style={styles.movieDetails}>
+                <Text style={styles.movieTitle}>Movie Title</Text>
+                <Text>Release Date: Dec 23, 2018</Text>
+                <Text>Rating:</Text>
             </View>
         </View>
     );
@@ -30,6 +32,14 @@ const styles = StyleSheet.create({
     cover: {
         height: 100,
         width: 100
+    },
+    movieDetails: {
+        flexDirection: 'column',
+        marginHorizontal: 10
+    },
+    movieTitle: {
+        fontSize: 18,
+        fontWeight: '600'
     }
 });
 
