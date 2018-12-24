@@ -48,6 +48,7 @@ export default class App extends Component<Props> {
 
     renderMovieCard = () => {
         return this.state.movies.map((movie, index) => {
+            console.log(movie)
             return (
                 <MovieCard key={index} movie={movie}/>
             )
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#f2f2f2',
+        width: '100%'
     },
     listTitle: {
         fontSize: 22,

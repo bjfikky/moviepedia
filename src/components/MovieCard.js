@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native'
 
 
-const MovieCard = () => {
+const MovieCard = (props) => {
     return (
         <View style={styles.cardContainer}>
             <View>
@@ -10,7 +10,7 @@ const MovieCard = () => {
             </View>
 
             <View style={styles.movieDetails}>
-                <Text style={styles.movieTitle}>Movie Title</Text>
+                <Text style={styles.movieTitle}>{props.movie.title}</Text>
                 <Text>Release Date: Dec 23, 2018</Text>
                 <Text>Rating:</Text>
             </View>
@@ -35,11 +35,13 @@ const styles = StyleSheet.create({
     },
     movieDetails: {
         flexDirection: 'column',
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        flex: 1
     },
     movieTitle: {
         fontSize: 18,
-        fontWeight: '600'
+        fontWeight: '600',
+        width: '100%'
     }
 });
 
