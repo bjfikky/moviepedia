@@ -8,15 +8,15 @@ import MovieCard from './src/components/MovieCard'
 
 
 export default class App extends Component<Props> {
-    state: {
+    state = {
         movies: []
     };
+
 
     componentWillMount() {
         axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=28a429a8859ea5b4c73798bec5c54fd0')
             .then(response => {
                 this.setState({movies: response.data.results});
-                console.log(this.state.movies)
             })
     }
 
@@ -36,13 +36,7 @@ export default class App extends Component<Props> {
                             </Text>
 
                             <ScrollView>
-                                <MovieCard/>
-                                <MovieCard/>
-                                <MovieCard/>
-                                <MovieCard/>
-                                <MovieCard/>
-                                <MovieCard/>
-                                <MovieCard/>
+                                {this.renderMovieCard()}
                             </ScrollView>
                         </View>
 
@@ -50,7 +44,18 @@ export default class App extends Component<Props> {
             </Fragment>
         );
     }
+
+
+    renderMovieCard = () => {
+        return this.state.movies.map((movie, index) => {
+            return (
+                <MovieCard key={index} movie={movie}/>
+            )
+        })
+    }
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
