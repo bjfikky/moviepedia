@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native'
+import moment from 'moment'
 
 
 const MovieCard = (props) => {
@@ -11,12 +12,18 @@ const MovieCard = (props) => {
 
             <View style={styles.movieDetails}>
                 <Text style={styles.movieTitle}>{props.movie.title}</Text>
-                <Text>Release Date: Dec 23, 2018</Text>
+                <Text>Release Date: {formatDate(props.movie.release_date)}</Text>
                 <Text>Rating:</Text>
             </View>
         </View>
     );
 };
+
+
+const formatDate = (unformattedDate) => {
+    let m = moment(unformattedDate, 'YYYY-MM-DD');
+    return m.format('MMM DD, YYYY')
+}
 
 
 const styles = StyleSheet.create({
