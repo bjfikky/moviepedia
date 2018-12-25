@@ -6,7 +6,7 @@ const MovieCard = (props) => {
     return (
         <View style={styles.cardContainer}>
             <View>
-                <Image style={styles.cover} source={{uri: 'https://via.placeholder.com/300'}}/>
+                <Image style={styles.cover} source={{uri: `https://image.tmdb.org/t/p/w200/${props.movie.poster_path}`}}/>
             </View>
 
             <View style={styles.movieDetails}>
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     },
     cover: {
         height: 100,
-        width: 100
+        width: 100,
+        resizeMode: 'center'
     },
     movieDetails: {
         flexDirection: 'column',
