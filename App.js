@@ -9,7 +9,11 @@ import MovieCard from './src/components/MovieCard'
 
 export default class App extends Component<Props> {
     state = {
-        movies: []
+        movies: [],
+
+        searchTerm: '',
+
+        listTitle: 'Trending Movies'
     };
 
 
@@ -28,11 +32,15 @@ export default class App extends Component<Props> {
 
                         <Header/>
 
-                        <SearchBar/>
+                        <SearchBar
+                            searchTerm={this.state.searchTerm}
+                            onSubmitEditing={this.onEnterPress}
+                            onChangeText={text => this.setState({searchTerm: text})}
+                        />
 
                         <View style={styles.moviesList}>
                             <Text style={styles.listTitle}>
-                                Trending Movies:
+                                {this.state.listTitle}
                             </Text>
 
                             <ScrollView>
@@ -46,9 +54,21 @@ export default class App extends Component<Props> {
     }
 
 
+    onEnterPress = () => {
+        console.log(this.state.searchTerm);
+        this.setState({
+            listTitle: `Search Results for "${this.state.searchTerm}"`
+        });
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=28a429a8859ea5b4c73798bec5c54fd0&
+        language=en-US&query=${this.state.searchTerm}&page=1&include_adult=false`)
+            .then(response => {
+                this.setState({movies: response.data.results});
+            })
+    }
+
+
     renderMovieCard = () => {
         return this.state.movies.map((movie, index) => {
-            console.log(movie)
             return (
                 <MovieCard key={index} movie={movie}/>
             )

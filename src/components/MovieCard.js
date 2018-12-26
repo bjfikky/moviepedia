@@ -4,6 +4,8 @@ import moment from 'moment'
 
 
 const MovieCard = (props) => {
+    const {title, release_date, vote_average} = props.movie;
+
     return (
         <View style={styles.cardContainer}>
             <View>
@@ -11,9 +13,9 @@ const MovieCard = (props) => {
             </View>
 
             <View style={styles.movieDetails}>
-                <Text style={styles.movieTitle}>{props.movie.title}</Text>
-                <Text>Release Date: {formatDate(props.movie.release_date)}</Text>
-                <Text>Rating:</Text>
+                <Text style={styles.movieTitle}>{title}</Text>
+                <Text>Release Date: {formatDate(release_date)}</Text>
+                <Text>Rating: {vote_average}/10</Text>
             </View>
         </View>
     );
